@@ -1,0 +1,27 @@
+// global style setting
+$text_color: #000000;
+$container-min-width: 980px;
+
+// global header 
+$header-bg-1:#3b5998;
+$header-bg-2:#4e69a2;
+$border-bule: #133783;
+
+body{
+    margin: 0px;
+}
+.container{
+    color: $text_color;
+}
+.header-container{
+    height: 82px;
+    min-height: 42px;
+    min-width: $container-min-width;
+    background-color:$header-bg-1;
+    background-image: linear-gradient($header-bg-2, $header-bg-1 50%);
+    border-bottom: 1px solid $border-bule;
+   
+}
+.fooret-container{
+    background: red
+}
