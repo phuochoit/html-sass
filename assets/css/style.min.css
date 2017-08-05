@@ -1,0 +1,16 @@
+body{margin:0;font-family:Helvetica,Arial,sans-serif}
+h1,h2,h3,h4,h5,h6{color:#1d2129;margin:0;padding:0}
+a{color:#365899;cursor:pointer;text-decoration:none}
+.container{color:#000}
+.inputtext{border:1px solid #bdc7d8;margin:0;padding:3px;-webkit-appearance:none;-webkit-border-radius:0}
+.header-container{height:82px;min-height:42px;min-width:980px;background-color:#3b5998;background-image:linear-gradient(#4e69a2,#3b5998 50%);border-bottom:1px solid #133783}
+.header-container .header-main{width:980px;margin:0 auto;display:block;overflow:hidden;padding:13px 0}
+.header-container .header-main .logo-container{float:left}
+.header-container .header-main .logo-container .fb_logo{width:170px;height:34px;background:url(../images/smile.png);display:inline-block;background-position:0 0}
+.header-container .header-main .login-container{float:right;display:inline-block}
+.header-container .header-main .login-container .formlogin .form-group{display:inline-block;vertical-align:top;margin-right:10px}
+.header-container .header-main .login-container .formlogin .form-group:last-child{margin-right:0}
+.header-container .header-main .login-container .formlogin .form-group *{display:block}
+.header-container .header-main .login-container .formlogin .form-group label{color:#fff;font-size:12px;margin-bottom:5px}
+.header-container .header-main .login-container .formlogin .form-group.fsubmit #lsubmit{background:#4267b2;border-color:#29487d;color:#fff;cursor:pointer;border-width:1px;line-height:18px;font-weight:700;white-space:nowrap;font-size:12px}
+.fooret-container{background:red}
