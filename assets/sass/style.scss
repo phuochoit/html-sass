@@ -315,6 +315,11 @@ a {
                     &:hover{
                         text-decoration: none;
                     }
+                    @media screen and (max-width: 600px) {
+                        @include fwidth-left(100%,left);
+                        margin: 10px auto;
+                        padding: 10px 0;
+                    }
                 }
                 ul{
                     padding-left: 0;
