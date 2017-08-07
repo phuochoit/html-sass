@@ -23,7 +23,19 @@ $colorA: #365899;
     float: $float;
     display:block;
 }
-
+@mixin container-width-moblie{
+     width:calc(100% - 30px);
+     margin-left: 15px;
+     margin-right: 15px;
+}
+@mixin sp_befor_afert{
+    background: #ced0d4;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+}
 // reset css
 body{
     margin: 0px;
@@ -65,26 +77,51 @@ a {
     background-color:$header-bg-1;
     background-image: linear-gradient($header-bg-2, $header-bg-1 50%);
     border-bottom: 1px solid $border-bule;
+    @media screen and (max-width: 1000px) {
+         min-width:auto;
+    }
+    @media screen and (max-width: 768px) {
+        height: 44px;
+    }
     /* header main */
     .header-main{
         @include container-width;
         display: block;
         overflow: hidden;
         padding: 11px 0px;
+        @media screen and (max-width: 1000px) {
+            @include container-width-moblie;
+            padding: 7px 0;
+        }
         .logo-container{
             float: left;
             padding-top: 20px;
+            @media screen and (max-width: 768px) {
+                float: none;
+                margin: 0 auto;
+                text-align: center;
+                padding-top:0px;
+            }
             .fb_logo {
                 width: 170px;
                 height: 34px;
                 background: url("../images/smile.png");
                 display: inline-block;
                 background-position: 0 0;
+                @media screen and (max-width: 768px) {
+                    width: 123px;
+                    height: 24px;
+                    background: url("../images/smile2.png");
+                    background-position: 0 -25px;
+                }
             }
         }
         .login-container {
             float: right;
             display: inline-block;
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
             .formlogin{
                 .form-group{
                     display: inline-block;
@@ -144,14 +181,169 @@ a {
 /* end header css */
 /* container css */
 .main-container{
-    background: linear-gradient(white, #D3D8E8);
+    background: linear-gradient($white-color, #D3D8E8);
     @include fwidth-left(100%,left) ;
+    @media screen and (max-width: 768px) {
+        background: #eceff5;
+    }
     .global-container{
         @include container-width;
+        @media screen and (max-width: 1000px) {
+            @include container-width-moblie;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+        &.mglobal-container{
+            display: none;
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 16px;
+            @media screen and (max-width: 768px) {
+                display: block;
+                
+            }
+            .mcontainer{
+                @include fwidth-left(100%,left);
+                margin-bottom: 10px;
+                .login_identify_step_element{
+                    @include fwidth-left(100%,left);
+                    border: 1px solid;
+                    border-color: rgba(0, 0, 0, .07) rgba(0, 0, 0, .11) rgba(0, 0, 0, .18);
+                    background: $white-color;
+                    input{
+                        @include fwidth-left(100%,left);
+                        -webkit-appearance: none;     
+                        box-sizing: border-box;
+                        padding: 12px;
+                        border: medium none;
+                        background: transparent;
+                        font-size: $df-font-size;
+                        -webkit-appearance: none;
+                        box-sizing: border-box;
+                    }
+                    .m_login_button{
+                        text-shadow: 0 -1px rgba(0, 0, 0, .25);
+                        border: none;
+                        border-radius: 3px;
+                        box-sizing: border-box;
+                        position: relative;
+                        -webkit-user-select: none;
+                        z-index: 0;
+                        height: 36px;
+                        width: 100%;
+                        cursor: pointer;
+                        span{
+                            color: $white-color;
+                            font-weight: bold;
+                            font-size: $df-font-size;
+                        }
+                        &::before {
+                            border-radius: 4px;
+                            bottom: -1px;
+                            content: "";
+                            left: -1px;
+                            pointer-events: none;
+                            position: absolute;
+                            right: -1px;
+                            top: -1px;
+                            transform: none;
+                            z-index: -1;
+                            background-color: #627aad;
+                            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .1));
+                        }
+                        &::after{
+                            border-color: rgba(0, 0, 0, .15) rgba(0, 0, 0, .15) rgba(0, 0, 0, .26);
+                            box-shadow: 0 1px 0 rgba(0, 0, 0, .14), inset 0 -1px 1px 0 rgba(0,0,0,.03);
+                            content: "";
+                        }
+                    }
+                    &:first-child{
+                        border-bottom: none;
+                        border-top-left-radius: 4px;
+                        border-top-right-radius: 4px;
+                    }
+                    &:nth-child(2){
+                        border-bottom-left-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                    }
+                    &:last-child{
+                        border: none;
+                        background: transparent;
+                        margin-top: 12px;
+                    }
+                }
+                &.mstep_element{
+                    text-align: center;
+                    white-space: nowrap;
+                    font-size: $df-font-size;
+                    margin-bottom: 0px;
+                }
+                &.mlogin_more{
+                    margin-bottom: 0px;
+                }
+                .mmesseageor {
+                    @include fwidth-left(90%,left);
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    margin-top: 10px;
+                    overflow: hidden;
+                    position: relative;
+                    &::before {
+                        margin-right: 15px;
+                        right: 55%;
+                        @include sp_befor_afert;
+                    }
+                    &::after{
+                        left: 55%;
+                        margin-left: 15px;
+                        @include sp_befor_afert;
+                    }
+                }
+                #signup-button{
+                    @include fwidth-left(auto,left);
+                    text-align: center;
+                    margin: 12px 30%;
+                    background: linear-gradient(#75ab4b, #4a8532);
+                    border-color: #68954c #427329 #386a24;
+                    color: $white-color;
+                    font-size: $df-font-size;
+                    font-weight: bold;
+                    padding:10px 20px;
+                    border-radius: 4px;
+                    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 1px 0 rgba(0, 0, 0, .08);
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+                ul{
+                    padding-left: 0;
+                    text-align: center;
+                    margin-top: 0;
+                    li{
+                        display: inline-block;
+                        a{
+                            color: #7596c8;
+                            font-size: 12px;
+                            line-height: 16px;
+                            &:hover{
+                                text-decoration: none;
+                            }
+                        }
+                        span{
+                            color: #4b4f56;
+                        }
+                    }
+                }
+            }
+        }
         .main-float-left{
             margin-right: 15px;
             width: 565px;
             float: left;
+            @media screen and (max-width: 1000px) {
+                 width: 57%;
+            }
             .ltitle{
                 color: #0e385f;
                 float: left;
@@ -165,12 +357,19 @@ a {
             img{
                 width: 547px;
                 height: 195px;
+                @media screen and (max-width: 1000px) {
+                    width: auto;
+                    max-width: 100%;
+                }
             }
         }
         .main-float-right{
             width: 400px;
             float: right;
             padding-bottom: 30px;
+            @media screen and (max-width: 1000px) {
+                width: 40%;
+            }
             .rmaintitle{
                 @include fwidth-left(100%,left) ;
                 padding: 20px 0;
@@ -187,6 +386,7 @@ a {
             }
             .registration_container{
                 @include fwidth-left(100%,left) ;
+                
                 .formregistration{
                     @include fwidth-left(100%,left) ;
                 }
@@ -200,6 +400,9 @@ a {
                         border-radius: 5px;
                         margin: 0;
                         width: 377px;
+                        @media screen and (max-width: 1000px) {
+                            width: 92.5%;
+                        }
 
                     }
                 }
@@ -238,8 +441,14 @@ a {
                     margin-right: 8px;  
                     display: inline-block;
                     float: left;
+                    @media screen and (max-width: 1000px) {
+                        width: 48%;
+                    }
                     input{
                         width: 172px;
+                        @media screen and (max-width: 1000px){
+                             width: 88%;
+                        }
                     }
                 }
                 .group_right{
@@ -317,6 +526,9 @@ a {
     }
     .fooret-main{
         @include container-width ;
+        @media screen and (max-width: 1000px) {
+            @include container-width-moblie;
+        }
     }
     .top-footer{
         padding-top: 8px;
@@ -325,12 +537,41 @@ a {
         margin-top: 0px;
         font-size: $df-font-size - 2;
         margin-bottom: 0;
+        &.top-footer-mobile{
+            display: none;
+            @media screen and (max-width: 768px) {
+                display: block;
+            }
+        }
+        @media screen and (max-width: 768px) {
+           @include fwidth-left(100%,left);
+           display: none;
+        }
         li{
             display: inline-block;
             margin-top: 0px;
             padding-left: 10px;
+            @media screen and (max-width: 830px) {
+                margin-bottom: 10px;
+            }
+            @media screen and (max-width: 768px) {
+                float: left;
+                margin-bottom: 3px;
+                padding: 0;
+                text-align: center;
+                width: 50%;
+            }
+            a{
+                @media screen and (max-width: 768px) {
+                    color:#576b95;
+                    text-decoration: none;
+                }
+            }
             &:first-child{
                 padding-left: 0px;
+                @media screen and (max-width: 768px) {
+                    font-weight: bold;
+                }
             }
             &:last-child{
                 border: 1px solid#ced0d4;
@@ -338,8 +579,19 @@ a {
                 padding-left: 0;
                 margin-left: 5px;
                 vertical-align: middle;
+                @media screen and (max-width: 768px) {
+                    float: right;
+                    margin-right: 24%;
+                    position: relative;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 4px;
+                    border-color:$header-bg-1;
+                    color: #4080ff;
+                }
                 &:hover{
                     background-color: #e9ebee;
+                    
                 }
                 a{
                     height: 18px;
@@ -350,6 +602,9 @@ a {
                     background-position: 0 -155px;
                     display: block;
                     margin: 3px 5px;
+                    @media screen and (max-width: 768px) {
+                        margin:3px;
+                    }
                 }
             }
         }
@@ -359,9 +614,15 @@ a {
         font-size: 1px;
         height: 8px;
         margin-bottom: 8px;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     }
     .wrapMainUl{
         width: $container-width + 80;
+        @media screen and (max-width: 1160px) {
+            width: 100%;
+        }
         ul{
             display: inline-block;
             margin-top: 5px;
@@ -369,9 +630,21 @@ a {
             vertical-align: top;
             padding-right: 10px;
             margin-bottom: 0px;
+            @media screen and (max-width: 1000px) {
+                margin-bottom: 10px;
+                padding-left: 0;
+                padding-right: 0;
+                width: 15%;
+                &:nth-child(3){
+                    width: 20%;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
             li{
                 display: block;
-                .a{
+                a{
                     position: relative;
                     .more_ads{
                         width: 16px;
@@ -388,10 +661,17 @@ a {
             }
             &:not(:first-child){
                 padding-left: 10px;
+                @media screen and (max-width: 1000px) {
+                    padding-left: 0px;
+                }
             }
             &:last-child{
                 padding-right: 0px;
-                 
+                @media screen and (max-width: 1160px) {
+                    @media (min-width: 1001px){
+                        padding-left: 0px;
+                    }
+                }
             }
         }
     }
@@ -399,6 +679,9 @@ a {
         margin-bottom: 20px;
         margin-top: 20px;
         font-size: $df-font-size - 3;
+        @media screen and (max-width: 768px) {
+            text-align: center;
+        }
         span{
             color: #737373;
         }
